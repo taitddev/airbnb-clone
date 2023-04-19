@@ -5,9 +5,11 @@ import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
 import { useRouter } from "next/navigation";
+import useRegisterModal from "@/app/hooks/useRegisterModal";
 
 const UserMenu = () => {
   const router = useRouter();
+  const registerModal = useRegisterModal();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -55,6 +57,8 @@ const UserMenu = () => {
                 label="My properties"
                 onClick={() => router.push("/properties")}
               />
+
+              <MenuItem label="Sign up" onClick={registerModal.onOpen} />
             </>
           </div>
         </div>
